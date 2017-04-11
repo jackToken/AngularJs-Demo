@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJs_2</title>	
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<!--
+		<div ng-app="myApp" ng-controller="myController" ng-init="numbers=5;price=20">
+			<p>numbers:<input type="text" ng-model="numbers"></p>
+			<p>price:<input type="text" ng-model="price"></p>
+			<p>money:{{numbers * price}}</p>
+		</div>
+		-->
+		<div ng-app="appName" ng-controller="appController" ng-init="username1='jack';username2='tom'">
+			<p>Names:{{username1 + " " + username2}}</p>
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<!--
+	<script type="text/javascript">
+		var myApp = angular.module('myApp', []);
+		myApp.controller('myController', function($scope){
+			$scope.numbers = 10;
+			$scope.price = 2;
+		});
+	</script>
+	-->
+	<script type="text/javascript">
+		var appName = angular.module('appName', []);
+		appName.controller('appController', function($scope) {
+			
+		});
+	</script>
+</html>

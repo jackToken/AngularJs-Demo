@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJs_2</title>	
+		
+		<meta charset="utf-8"/>
+	</head>
+	<!--
+	<body ng-app="appName">
+		<username></username>
+	</body>
+	<script type="text/javascript">
+		var appName = angular.module('appName', []);
+		appName.directive("username", function() {
+			return {
+				template : "<h1>自定义指令!</h1>"
+			};
+		});
+	</script>
+	-->
+	<body ng-app="appName">
+		<div user-name></div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var appName = angular.module('appName', []);
+		appName.directive('userName', function(){
+			return {
+				restrict:'A',
+				template:'<h1>UserName</h1>'
+			};
+		});
+	</script>
+</html>
