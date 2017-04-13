@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Event</title>
+	</head>
+	<body>
+		<form name="ngForm" ng-app="ngApp" ng-controller="ngController">
+			<h1>{{greeting}}</h1>
+			<p>
+				UserName <input type="text" ng-model="userName" name="userName"/><br>
+				<button ng-click="sayHello()">Click</button>
+			</p>
+		</form>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope){
+			$scope.userName = 'UserName';
+			$scope.sayHello = function() {
+				$scope.greeting = "Hello " + $scope.userName;	
+			};
+		});
+	</script>
+</html>

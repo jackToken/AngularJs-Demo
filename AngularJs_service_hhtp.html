@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ServiceHttp</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div ng-app="ngApp" ng-controller="ngController">
+			<p>Search <input type="text" ng-model="name"></p>
+			<ul>
+				<li ng-repeat="item in datas | filter:name">
+					{{item.name + "     " + item.pName}}
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope, $http){
+			$http.get('http://182.92.234.232:8090/test/data.json').then(function (response){
+				$scope.datas = response.data.data;
+			});
+		});
+	</script>
+</html>

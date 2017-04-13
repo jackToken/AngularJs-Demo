@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CssStyle</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div ng-app="ngApp" ng-controller="ngController">
+			<p>当前URL：{{urlStr}}</p>
+			<p>当前Path：{{pathStr}}</p>
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope, $location){
+			$scope.urlStr = $location.absUrl();
+			$scope.pathStr = $location.path();
+		});
+	</script>
+</html>

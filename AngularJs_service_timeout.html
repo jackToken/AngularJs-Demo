@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ServiceTimeout</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div ng-app="ngApp" ng-controller="ngController">
+			{{msg}}
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope, $timeout){
+			$scope.msg = 'Hello world';
+			$timeout(function(){
+				$scope.msg = 'Change Content';
+			},2000);
+		});
+	</script>
+</html>

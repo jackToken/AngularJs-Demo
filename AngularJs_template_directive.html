@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>directive template</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div ng-app="ngApp" ng-controller="ngController">
+			<p template-layout></p>
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.directive('templateLayout', function(){
+			return {
+				restrict:'A',
+				template:'This is template'
+			};
+		});
+		ngApp.controller('ngController', function($scope, $http){
+			
+		});
+	</script>
+</html>

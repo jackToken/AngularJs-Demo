@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJs_2</title>	
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<form name="myForm" ng-app="myApp" ng-controller="myController">
+			<p>
+				Email:<input type="email" name="userEmail" ng-model="userEmail">
+				<span ng-show="myForm.userEmail.$error.email">Please input email.</span>
+			</p>
+			<p>
+				<h1>状态</h1><br>
+				valid:{{myForm.userEmail.$valid}}<br>
+				dirty:{{myForm.userEmail.$dirty}}<br>
+				touched:{{myForm.userEmail.$touched}}
+			</p>
+		</form>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var myApp = angular.module('myApp', []);
+		myApp.controller('myController', function($scope){
+			$scope.userEmail = 'user@163.com';
+		});
+	</script>
+</html>

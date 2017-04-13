@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>$http</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<div ng-app="ngApp" ng-controller="ngController">
+			json To uppercase:  {{str1}}<br>
+			JSON To lowercase:  {{str2}}<br>
+			Json isString:  {{str3}}<br>
+			324 isNumber: {{str4}}
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope){
+			$scope.str1 = angular.uppercase("json");
+			$scope.str2 = angular.lowercase("JSON");
+			$scope.str3 = angular.isString("ss");
+			$scope.str4 = angular.isNumber("ss");
+		});
+	</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CustomEvent</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div ng-app="ngApp" ng-controller="ngController">
+			{{welcome}}
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.service('customService', function(){
+			this.sayHello = function() {
+				return 'Hello eveybody';
+			};
+		});
+		ngApp.controller('ngController', function($scope, customService) {
+			$scope.welcome = customService.sayHello();
+		});
+	</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Event</title>
+	</head>
+	<body>
+		<!--
+		<div ng-app="ngApp" ng-controller="ngController">
+			{{firstName | uppercase}}
+		</div>
+		<div ng-app="ngApp" ng-controller="ngController">
+			{{firstName | lowercase}}
+		</div>
+		<div ng-app="ngApp" ng-controller="ngController">
+			{{number * price | currency}}
+		</div>
+		-->
+		<div ng-app="ngApp" ng-controller="ngController">
+			<ul>
+				<li ng-repeat="item in person | orderBy:'number'">
+					{{item.number + " " + item.content}}
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope) {
+			//$scope.firstName = 'abc';
+			//$scope.firstName = 'ABC';
+			//$scope.number = 10;
+			//$scope.price = 2;
+			$scope.person = [{number:3,content:333}, 
+			{number:2,content:222}, {number:1,content:111}];
+		});
+	</script>
+</html>

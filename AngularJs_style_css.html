@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CssStyle</title>
+		<meta charset="utf-8">
+	</head>
+	<style type="text/css">
+		input.ng-invalid {
+			background-color:lightblue;
+		}
+	</style>
+	<body>
+		<form name="formName" ng-app="ngApp" ng-controller="ngController">
+			<p>
+				Email <input type="email" ng-model="userEmail" name="userEmail"/>
+			</p>
+		</form>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope){
+			$scope.userEmail = 'user@163.com';
+		});
+	</script>
+</html>

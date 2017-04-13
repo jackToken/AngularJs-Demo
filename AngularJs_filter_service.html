@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ServiceTimeout</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div ng-app="ngApp" ng-controller="ngController">
+			<ul>
+				<li ng-repeat="x in datas">{{x | myFormat}}</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.service('toHexService', function() {
+			this.myFunc = function(x) { 
+				return x.toString(16);
+			};
+		});
+		ngApp.filter('myFormat',['toHexService', function(toHexService) {
+			return function(x) {
+				return toHexService.myFunc(x);
+			};
+		}]);
+		ngApp.controller('ngController', function($scope){
+			$scope.datas = [211,223,255];
+		});
+	</script>
+</html>

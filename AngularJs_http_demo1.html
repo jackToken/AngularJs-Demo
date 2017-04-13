@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>$http</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<div ng-app="ngApp" ng-controller="ngController">
+			<ul>
+				<li ng-repeat="item in datas">{{"Name:" + item.name + " PackageName:" + item.pName}}</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope, $http){
+			$http({
+				method:'get',
+				url:'http://git.boomsecret.com:8090/test/data.json'
+			}).then(function successCallback(response){
+				$scope.datas = response.data.data;
+			}, function errorCallback(response){
+				$scope.datas = response;
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>$http</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<div ng-app="ngApp" ng-controller="ngController">
+			<select ng-model="itemValue" ng-options="item.pName for item in datas"></select>
+		</div>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope, $http){
+			$http({
+				method:'get',
+				url:'http://git.boomsecret.com:8090/test/data.json'
+			}).then(function(response){
+				$scope.datas = response.data.data;
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Table</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<table ng-app="ngApp" ng-controller="ngController">
+			<tr ng-repeat="item in datas | orderBy:'pName'">
+				<td>{{$index + 1}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.pName | uppercase}}</td>
+			</tr>
+		</table>
+	</body>
+	<script src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var ngApp = angular.module('ngApp', []);
+		ngApp.controller('ngController', function($scope, $http){
+			$http({
+				method:'get',
+				url:'http://git.boomsecret.com:8090/test/data.json'
+			}).then(function(response){
+				$scope.datas = response.data.data;			});
+		});
+	</script>
+	 <style>
+		table, th , td {
+		  border: 1px solid grey;
+		  border-collapse: collapse;
+		  padding: 5px;
+		}
+		table tr:nth-child(odd) {
+		  background-color: #f1f1f1;
+		}
+		table tr:nth-child(even) {
+		  background-color: #ffffff;
+		}
+	</style> 
+</html>
